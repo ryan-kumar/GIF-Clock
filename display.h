@@ -8,6 +8,7 @@
 
 void displayInit();
 void displayTime();
+void typeMessage(String message);
 
 
 

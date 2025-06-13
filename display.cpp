@@ -11,7 +11,6 @@ void displayInit() {
   tft.setRotation(1);
   tft.fillScreen(ILI9341_BLACK);
   tft.setTextColor(ILI9341_PINK);
-  tft.setTextWrap(false);
 }
 
 
@@ -20,6 +19,24 @@ void displayTime() {
   tft.fillScreen(ILI9341_BLACK);
   tft.setTextSize(4);
   tft.setCursor(30, 100);
-  tft.print(time);
+  tft.println(time);
+
+  String date = getDate();
+  tft.setTextSize(2);
+  tft.setCursor(90, 140);
+  tft.println(date);
+
+
   delay(1000);
+}
+
+void typeMessage(String message) {
+  tft.setTextSize(2);
+  tft.setCursor(10,10);
+  for (int i = 0; i < message.length(); ++i) {
+    tft.print(message[i]);
+    delay(75);
+  }
+  delay(1000);
+  tft.fillScreen(ILI9341_BLACK);
 }
