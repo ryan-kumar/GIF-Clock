@@ -4,7 +4,6 @@
 void setup() {
   Serial.begin(115200);
   displayInit();
-  setTimeManually(10, 57);
   bootMessage();
 
 
@@ -12,4 +11,5 @@ void setup() {
 
 void loop() {
   displayTime();
+  delay(100);
 }
