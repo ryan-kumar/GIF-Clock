@@ -1,13 +1,13 @@
 #include "clock.h"
 
-void setTimeManually(int hours, int mins) {
+void setTimeManually(int hours, int mins, int seconds, int month, int day, int year) {
   struct tm tm;
-  tm.tm_year = 2025 - 1900; 
-  tm.tm_mon = 5;         
-  tm.tm_mday = 16;
+  tm.tm_year = year; 
+  tm.tm_mon = month;         
+  tm.tm_mday = day;
   tm.tm_hour = hours;
   tm.tm_min = mins;
-  tm.tm_sec = 0;
+  tm.tm_sec = seconds;
   time_t t = mktime(&tm);
   struct timeval now = { .tv_sec = t };
   settimeofday(&now, NULL);
@@ -28,6 +28,6 @@ String getTime() {
 String getDate() {
   time_t now = time(nullptr);
   struct tm* timeinfo = localtime(&now);
-  return "(" + pad(timeinfo->tm_mon + 1) + "/" + pad(timeinfo->tm_mday) + "/" + String(1900 + timeinfo->tm_year) + ")";
+  return "(" + pad(timeinfo->tm_mon + 1) + "/" + pad(timeinfo->tm_mday + 1) + "/" + String(1900 + timeinfo->tm_year) + ")";
 }
 

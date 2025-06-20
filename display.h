@@ -8,9 +8,9 @@
 #include "clock.h"
 
 void displayInit();
-void displayTime();
+void displayTime(bool tick);
 void typeMessage(String message);
-void bootMessage();
+void bootSequence();
 bool createTouchbx(int stx, int sty, int width, int height);
 
 

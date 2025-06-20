@@ -6,7 +6,7 @@
 #include <Arduino.h>
 
 
-void setTimeManually(int hours, int mins);
+void setTimeManually(int hours, int mins, int seconds, int month, int day, int year);
 String pad(int val);
 String getTime();
 String getDate();
